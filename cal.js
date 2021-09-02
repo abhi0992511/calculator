@@ -1,9 +1,10 @@
 "use strict"
 var button=document.getElementsByClassName('button');
 var display=document.getElementById('display-container');
-var operator=null;
-var oprend1=0;
-var oprend2=null;
+var display2=document.getElementById('display-container2');
+
+var store="";
+
 for(var i=0;i<button.length;i++)
 {
     button[i].addEventListener('click',function()
@@ -11,67 +12,65 @@ for(var i=0;i<button.length;i++)
         var value=this.getAttribute('data-value');
         if(value=='+'||value=='-'||value=='*'||value=='/'||value=='%')
         {
-            operator=value;
-            oprend1=parseFloat(display.textContent)
-           
-            display.textContent=' ';
+            store +=value;
+            display.textContent=store;
+          
         }
         else if(value=='AC')
-    {
-        oprend1=0;
-        oprend2='null';
-        operator='null';
-        display.textContent=' ';
-    }
+        {
+           
+            display.textContent=' ';
+            display2.textContent=' ';
+            store="";
+        }
        
         else if(value=='='){
-            //operator=parseFloat(display.textContent);
-            oprend2=parseFloat(display.textContent);
-           // var res=eval(oprend1+" "+operator+" "+oprend2);
-        
-        var res=eval(oprend1+" "+operator+" "+oprend2);
-        display.textContent=' ';
-    
-            display.textContent=res;
+
+            var res=eval(store);
+            display.textContent = store;
+            display2.textContent = ('='+res);
         }
         else{
-            display.textContent+=value;
+           
+            store +=value;
+            var res=eval(store);
+            display.textContent=store;
+            display2.textContent = ('='+res);
         }
     });
 }
 //on key
 for(var i=0;i<button.length;i++)
 {
-    button[i].addEventListener('keyPress',function(event)
+    button[i].addEventListener('keyPress',function()
     {
         var value=this.getAttribute('data-value');
         if(value=='+'||value=='-'||value=='*'||value=='/'||value=='%')
         {
-            operator=value;
-            oprend1=parseFloat(display.textContent)
-           
-            display.textContent=' ';
+            store +=value;
+            display.textContent=store;
+          
         }
         else if(value=='AC')
-    {
-        oprend1=0;
-        oprend2='null';
-        operator='null';
-        display.textContent=' ';
-    }
+        {
+          
+            display.textContent=' ';
+            display2.textContent=' ';
+            store="";
+        }
        
         else if(value=='='){
-            //operator=parseFloat(display.textContent);
-            oprend2=parseFloat(display.textContent);
-           // var res=eval(oprend1+" "+operator+" "+oprend2);
-        
-        var res=eval(oprend1+" "+operator+" "+oprend2);
-        display.textContent=' ';
-    
-            display.textContent=res;
+            
+            var res=eval(store);
+            display.textContent = store;
+            display2.textContent = ('='+res);
         }
         else{
-            display.textContent+=value;
+           
+            store +=value;
+            var res=eval(store);
+            display.textContent=store;
+            display2.textContent = ('='+res);
         }
     });
 }

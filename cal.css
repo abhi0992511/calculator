@@ -15,11 +15,26 @@
 
 }
 #display-container{
-    height: 18%;
+    height: 9%;
     width: 100%;
     /* border: 2px solid black; */
     /* padding: 1px 1px 1px 0px; */
-    margin-bottom: 10px;
+  
+    background-color: lavender;
+    font-size: x-large;
+    font-weight: 700;
+    font-family: sans-serif;
+     text-align:center ; 
+    justify-content: right;
+    border-radius: 2px;
+   
+}
+#display-container2{
+    height: 9%;
+    width: 100%;
+    /* border: 2px solid black; */
+    /* padding: 1px 1px 1px 0px; */
+   
     background-color: lavender;
     font-size: x-large;
     font-weight: 700;
@@ -28,6 +43,8 @@
     justify-content: right;
     border-radius: 2px;
     margin: auto;
+    margin-bottom: 10px;
+  
 }
 .button{
     height: 45px;
